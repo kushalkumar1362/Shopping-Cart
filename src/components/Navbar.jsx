@@ -1,7 +1,9 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
+      const { cart } = useSelector((state) => state);
     return (
         <div className="bg-blue-300">
             <div className="flex flex-row justify-between">
@@ -22,6 +24,10 @@ const Navbar = () => {
 
                     <NavLink to={"/cart"}>
                         <div>
+                            {
+                                cart.length > 0 ?  <div>{cart.length}</div> : null
+
+                           }
                             <FaShoppingCart />
                         </div>
                     </NavLink>

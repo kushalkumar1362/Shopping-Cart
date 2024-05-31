@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import Product from "../components/Product";
+import toast from "react-hot-toast";
 
 const Home = () => {
     const API_URL = "https://fakestoreapi.com/products";
@@ -15,7 +16,7 @@ const Home = () => {
 
             setPosts(data);
         } catch (error) {
-            alert("API ERROR");
+            toast.error("NetWork issue");
             setPosts([]);
         }
         setLoading(false);
